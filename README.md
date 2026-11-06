@@ -23,7 +23,7 @@ The package is a DSH profile bundle: an npm package plus `dsh.bundle.patch`
 (loader patch) and `dsh.client` (browser half).
 
 ```text
-plugin_manager install_bundle  target: "@guo-chsh/dsh-projects@0.1.4"
+plugin_manager install_bundle  target: "@llane.guo/dsh-projects@0.1.6"
 ```
 
 A local checkout can be installed the same way by passing its absolute

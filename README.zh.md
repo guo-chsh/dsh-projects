@@ -19,7 +19,7 @@
 本包是一个 DSH profile bundle：npm 包 + `dsh.bundle.patch`（加载器补丁）+ `dsh.client`（浏览器半边）。
 
 ```text
-plugin_manager install_bundle  target: "@guo-chsh/dsh-projects@0.1.4"
+plugin_manager install_bundle  target: "@llane.guo/dsh-projects@0.1.6"
 ```
 
 或直接装本地目录：`install_bundle` 的 target 传本仓库目录的绝对路径。
