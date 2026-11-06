@@ -1,7 +1,12 @@
 name: Publish to npm
 
-# Publishing runs from a GitHub release (Release -> Draft a new release -> tag v0.1.6 -> Publish),
+# Publishing runs from a GitHub release (Release -> Draft a new release -> tag vX.Y.Z -> Publish),
 # or manually from the Actions tab once the version in package.json is the one you want to ship.
+#
+# Authentication uses npm OIDC "trusted publishing": no NPM_TOKEN secret is needed, and npm
+# refuses tokens that bypass 2FA for direct publishing anyway. The npm package must list this
+# workflow as a trusted publisher once (npmjs.com -> package -> Settings -> Trusted publishing):
+#   provider GitHub Actions, org guo-chsh, repo dsh-projects, workflow publish.yml.
 on:
   release:
     types: [published]
@@ -9,6 +14,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   verify:
@@ -36,12 +42,19 @@ jobs:
           node-version: '22'
           registry-url: https://registry.npmjs.org
 
+      # Trusted publishing needs npm >= 11.5.1; the Node 22 image ships npm 10.x.
+      - name: Use the latest npm
+        run: npm install -g npm@latest
+
       - name: Show the tarball contents
         run: npm pack --dry-run
 
-      - name: Publish
-        run: npm publish
-        env:
-          # Repository secret: a granular npm access token with
-          # "Read and write" package permission and 2FA bypass enabled.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish (skipped when the version already exists)
+        run: |
+          version=$(node -p "require('./package.json').version")
+          name=$(node -p "require('./package.json').name")
+          if npm view "$name@$version" version --registry=https://registry.npmjs.org >/dev/null 2>&1; then
+            echo "$name@$version is already published; nothing to do."
+            exit 0
+          fi
+          npm publish --access public
