@@ -4,7 +4,15 @@
   "type": "module",
   "description": "Projects for DeepSeek Harness: group several physical folders into one project with a single primary workspace, browse them as a Projects tree in the left sidebar, and share one memory across the project's sessions.",
   "license": "MIT",
-  "author": "dsh-projects contributors",
+  "author": "Llane <cs.guo@outlook.com>",
+  "homepage": "https://github.com/guo-chsh/dsh-projects#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guo-chsh/dsh-projects.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guo-chsh/dsh-projects/issues"
+  },
   "keywords": [
     "dsh",
     "deepseek-harness",
