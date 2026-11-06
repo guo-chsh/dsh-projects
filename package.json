@@ -45,7 +45,11 @@
     "LICENSE"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "test": "node _verify/projects-host-check.mjs && node _verify/projects-client-check.mjs && node _verify/memory-e2e.mjs"
   },
   "dsh": {
     "manifestVersion": 1,

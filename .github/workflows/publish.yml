@@ -1,0 +1,47 @@
+name: Publish to npm
+
+# Publishing runs from a GitHub release (Release -> Draft a new release -> tag v0.1.6 -> Publish),
+# or manually from the Actions tab once the version in package.json is the one you want to ship.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify before publishing
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run the verification harnesses
+        run: npm test
+
+  publish:
+    name: Publish @guo-chsh/dsh-projects
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: https://registry.npmjs.org
+
+      - name: Show the tarball contents
+        run: npm pack --dry-run
+
+      - name: Publish
+        run: npm publish
+        env:
+          # Repository secret: a granular npm access token with
+          # "Read and write" package permission and 2FA bypass enabled.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

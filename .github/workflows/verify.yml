@@ -1,0 +1,29 @@
+name: Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Offline harnesses (Windows, Node 22)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The package has no runtime dependencies, so there is nothing to install:
+      # every harness boots a stubbed Cordis context in-process.
+      - name: Version check
+        run: node --version
+
+      - name: Run the verification harnesses
+        run: npm test
