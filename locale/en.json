@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Projects",
+    "description": "Group several folders into one named project, mark one of them as the primary workspace, and start sessions inside it from a left-sidebar panel."
+  }
+}
