@@ -9,7 +9,7 @@
  * project's other folders stay part of the same project.
  */
 window.__ModuleLoader__.load({
-  id: '@llane.guo/dsh-projects',
+  id: '@guo-chsh/dsh-projects',
   factory(require) {
     const React = require('react')
     const h = React.createElement
