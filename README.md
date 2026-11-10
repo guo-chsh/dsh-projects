@@ -1,5 +1,9 @@
 # dsh-projects
 
+[![npm](https://img.shields.io/npm/v/@guo-chsh/dsh-projects.svg)](https://www.npmjs.com/package/@guo-chsh/dsh-projects)
+[![CI](https://github.com/guo-chsh/dsh-projects/actions/workflows/verify.yml/badge.svg)](https://github.com/guo-chsh/dsh-projects/actions/workflows/verify.yml)
+[![license](https://img.shields.io/npm/l/@guo-chsh/dsh-projects.svg)](./LICENSE)
+
 [简体中文](./README.zh.md) | **English**
 
 Groups several physical folders into one **project** and shows them in the left

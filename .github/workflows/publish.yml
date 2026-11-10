@@ -57,4 +57,4 @@ jobs:
             echo "$name@$version is already published; nothing to do."
             exit 0
           fi
-          npm publish --access public
+          npm publish --access public --provenance

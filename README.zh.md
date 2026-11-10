@@ -1,5 +1,9 @@
 # dsh-projects
 
+[![npm](https://img.shields.io/npm/v/@guo-chsh/dsh-projects.svg)](https://www.npmjs.com/package/@guo-chsh/dsh-projects)
+[![CI](https://github.com/guo-chsh/dsh-projects/actions/workflows/verify.yml/badge.svg)](https://github.com/guo-chsh/dsh-projects/actions/workflows/verify.yml)
+[![license](https://img.shields.io/npm/l/@guo-chsh/dsh-projects.svg)](./LICENSE)
+
 **简体中文** | [English](./README.md)
 
 把多个物理目录组织成一个「项目」，并在左侧栏按 **项目 → 会话** 分组；会话在主工作区中启动，其余文件夹作为同一项目的附加目录。

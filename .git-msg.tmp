@@ -1,0 +1,5 @@
+docs: add npm/CI/license badges; publish with provenance
+
+The repository is public now, so the npm tarball can carry a build attestation:
+publish.yml passes --provenance, which gives the npm page a
+"Built and signed on GitHub Actions" mark for future versions.
