@@ -6,3 +6,6 @@ Thumbs.db
 _probe/
 dist/
 *.tgz
+
+# scratch commit message files
+.git-msg.tmp
