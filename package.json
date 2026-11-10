@@ -1,6 +1,6 @@
 {
   "name": "@guo-chsh/dsh-projects",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "description": "Projects for DeepSeek Harness: group several physical folders into one project with a single primary workspace, browse them as a Projects tree in the left sidebar, and share one memory across the project's sessions.",
   "license": "MIT",

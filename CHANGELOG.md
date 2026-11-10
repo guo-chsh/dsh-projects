@@ -4,6 +4,13 @@ All notable changes to this bundle are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 semantic versioning.
 
+## [0.1.7] - 2026-11-10
+
+- Sidebar typography now follows the shipped sidebar: session titles are 14 px
+  (the sidebar root size) instead of 12 px, project rows 14 px, folder section
+  rows 13 px, and the row height grows to 34 px so nothing feels cramped. Time
+  labels, state tags, count badges and the pinned-folder chip move to 11 px.
+
 ## [0.1.6] - 2026-11-05
 
 - Picking a "Move to folder…" target now reports the result with a short notice

@@ -386,7 +386,7 @@ for (const node of markNodes) {
 
 /* Folder placement is carried by the folder sections, not by a row chip. */
 const sectionHeadOf = (title) =>
-  nodes.find((node) => node.type === 'button' && node.props?.title === title && styleOf(node).fontSize === 11)
+  nodes.find((node) => node.type === 'button' && node.props?.title === title && styleOf(node).fontSize === 13)
 const primarySection = sectionHeadOf('C:/work/A')
 expect(primarySection !== undefined, 'the primary workspace must become its own section head')
 expect(text(primarySection).includes('sidePrimaryShort'), 'the primary section must read as the primary workspace')
@@ -427,7 +427,7 @@ expect(text(workspaceSection).includes('Elsewhere'), 'the workspace section must
 expect(order('其他会话') < order('Elsewhere'), 'workspace sections must sit under the ungrouped bucket')
 expect(order('Elsewhere') < order('外部会话'), 'the workspace session must hang below its workspace head')
 expect(findIn(workspaceSection, (node) => node.type === 'svg') !== null, 'a workspace section must carry the folder glyph')
-const looseHead = nodes.find((node) => node.type === 'button' && styleOf(node).fontSize === 11 && text(node).includes('sideNoWorkspace'))
+const looseHead = nodes.find((node) => node.type === 'button' && styleOf(node).fontSize === 13 && text(node).includes('sideNoWorkspace'))
 expect(looseHead !== undefined, 'sessions in no workspace must keep a named bucket')
 expect(order('sideNoWorkspace') < order('游离会话2'), 'a workspace-less session must render below its bucket head')
 
